@@ -98,7 +98,7 @@ def parse_content(tab_str: str, file_path_name: str, config: dict) -> str:
             lines = lines[line_begin:line_end]
         else:
             lines = lines[line_begin:]
-        res = f'\n{tab_str}'.join(lines)
+        res = f'{tab_str}'.join(lines)
         
     if not res:
         return ''

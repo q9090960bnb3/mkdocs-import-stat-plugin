@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mkdocs-import-stat-plugin"
-version = "1.0.4"
+version = "1.0.5"
 description = "import stat plugin for mkdocs like Markdown Preview Enhanced import"
 authors = ["q9090960bnb3 <q9090960bnb3@163.com>"]
 readme = "README.md"
