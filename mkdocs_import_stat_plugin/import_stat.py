@@ -20,15 +20,16 @@ def match_import(line: str, page: Page) -> str | None:
     res = None
     for elem in matches:
         tab_str = elem[0]
-        file_path_name = elem[1]
+        file_path_name: str = elem[1]
         config = get_config(elem[2])
         p_dir = config.get('p_dir') 
-        
+        is_abs = config.get('abs_path')
         if not path.isabs(file_path_name):
             if p_dir:
                 file_path_name = path.join(p_dir, file_path_name)
             file_path_name = path.join(page.file.src_dir, file_path_name)
-        
+        elif not is_abs:
+            file_path_name = path.join(page.file.src_dir, file_path_name.removeprefix('/'))
         
         res = parse_content(tab_str, file_path_name, config)
         # print('res:', res)
@@ -46,6 +47,7 @@ def get_config(config_str: str) -> dict:
     Returns:
         dict: 配置字典 
             p_dir 上级路径
+            abs_path 绝对路径
     """    
     matches = re.findall(reg_config, config_str, flags=re.DOTALL)
 

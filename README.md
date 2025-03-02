@@ -86,6 +86,19 @@ console.log('mkdocs')
 
 后 mkdocs 渲染会出错，该插件会将其 {cmd a=x c=x e} 删除，这样就与markdown-preview-enhanced 插件不冲突了
 
+## abs_path
+
+指示是否为绝对路径
+
+```md
+# test
+以下会搜索 系统下的 `/data/test.md` 文件
+@import "/data/test.md" {abs_path} 
+
+以下会搜索 当前项目目录下的 `docs/data/test.md` 文件
+@import "/data/test.md"
+```
+
 ## License
 
 [MIT](https://github.com/q9090960bnb3/import-stat-mkdocs-plugin/blob/main/LICENSE)
